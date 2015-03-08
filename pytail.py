@@ -44,11 +44,8 @@ class LogTail:
                 qid = p.findall(line)
                 if len(qid) >= 1:
                     queueid = qid[0]
-                    pretty = ""
-                    for i in qdic[queueid]:
-                        pretty.join(i)
+                    print "; ".join(qdic[queueid])
                     del qdic[queueid]
 
-
-objtail = LogTail(str(sys.argv[1]))
+objtail = LogTail("/var/log/maillog")
 objtail.tail()
